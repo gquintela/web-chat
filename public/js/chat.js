@@ -1,13 +1,12 @@
 const socket = io()
 
-// socket.on("countUpdated", (count) => {
-//     console.log("the count has been updated", count)
-// })
 
 document.querySelector("#messageForm").addEventListener("submit", (e) => {
     e.preventDefault()
     const message = e.target.elements.message.value
-    socket.emit("message", message)
+    socket.emit("sendMessage", message, (callbackMsg) => {
+        console.log("message delivered", callbackMsg)
+    })
 })
 
 document.querySelector("#sendLocation").addEventListener("click", () => {

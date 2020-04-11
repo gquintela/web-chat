@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const socketio = require("socket.io");
+const Filter = require("bad-words");
+const badWordsSpanish = require("./badWordsSpanish")
 
 const app = express();
 const server = http.createServer(app);
@@ -16,24 +18,34 @@ app.get("/index.html", function (req, res) {
     res.send();
 });
 
+const filter = new Filter();
+filter.addWords(...badWordsSpanish)
 
 io.on("connection", (socket) => {
-    socket.emit("message", "Welcome, to the chat!\n")
-    socket.broadcast.emit("message", "A new user has joined!")
-    socket.on("message", (e) => {
-        io.emit("message", e)
-    })
+    socket.emit("message", "Welcome, to the chat!\n");
+    socket.broadcast.emit("message", "A new user has joined!");
+
+    socket.on("sendMessage", (msg, callback) => {
+
+        msg = filter.clean(msg);
+
+        io.emit("message", msg);
+        callback("\nserver acknoleged recepcion");
+    });
 
     socket.on("disconnect", () => {
-        io.emit("message", "a user has disconnected")
-    })
+        io.emit("message", "a user has disconnected");
+    });
 
     socket.on("sendLocation", (position) => {
         if (position !== undefined) {
-            socket.broadcast.emit("message", `https://google.com/maps?q=${position.latitude},${position.longitude}`)
+            socket.broadcast.emit(
+                "message",
+                `https://google.com/maps?q=${position.latitude},${position.longitude}`
+            );
         }
-    })
-})
+    });
+});
 
 // });
 
