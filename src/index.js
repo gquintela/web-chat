@@ -25,24 +25,24 @@ io.on("connection", (socket) => {
     socket.emit("message", "Welcome, to the chat!\n");
     socket.broadcast.emit("message", "A new user has joined!");
 
+
     socket.on("sendMessage", (msg, callback) => {
-
         msg = filter.clean(msg);
-
         io.emit("message", msg);
-        callback("\nserver acknoleged recepcion");
+        callback("\nserver: Message Sent");
     });
 
     socket.on("disconnect", () => {
         io.emit("message", "a user has disconnected");
     });
 
-    socket.on("sendLocation", (position) => {
+    socket.on("sendLocation", (position, callback) => {
         if (position !== undefined) {
             socket.broadcast.emit(
                 "message",
                 `https://google.com/maps?q=${position.latitude},${position.longitude}`
             );
+            callback("Server: Location recieved.")
         }
     });
 });
