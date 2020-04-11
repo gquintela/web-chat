@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Chat App</title>
+  </head>
 
-<head>
-  <title>Chat App</title>
-</head>
+  <body>
+    <h1>Chat App</h1>
 
-<body>
-  <h1>Chat App</h1>
+    <form id="message-form">
+      <input name="message" placeholder="Write your message" type="text" />
+      <button>SEND</button>
+    </form>
+    <button id="sendLocation">SEND LOCATION</button>
 
-  <form id="messageForm">
-    <input name="message" placeholder="Write your message" type="text">
-    <button>SEND</button>
-  </form>
-  <button id="sendLocation">SEND LOCATION</button>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/chat.js"></script>
-</body>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+  </body>
 </html>
