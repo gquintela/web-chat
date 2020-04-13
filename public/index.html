@@ -2,18 +2,32 @@
 <html>
   <head>
     <title>Chat App</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
   </head>
 
   <body>
-    <h1>Chat App</h1>
+    <div class="centered-form">
+      <div class="centered-form__box">
+        <h1>JOIN</h1>
+        <form action="/chat.html">
+          <label>DISPLAY NAME</label>
+          <input
+            type="text"
+            name="username"
+            required
+            id="username__join"
+            autocomplete="off"
+          />
+          <label>ROOM</label>
+          <input type="text" name="room" required autocomplete="off" />
+          <button>JOIN</button>
 
-    <form id="message-form">
-      <input name="message" placeholder="Write your message" type="text" />
-      <button>SEND</button>
-    </form>
-    <button id="sendLocation">SEND LOCATION</button>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/chat.js"></script>
+          <script>
+            document.querySelector("#username__join").focus();
+          </script>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
