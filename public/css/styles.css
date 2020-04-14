@@ -303,6 +303,7 @@ button:disabled {
 
   .chat {
     display: flex;
+    height: 70vh;
   }
 
   /* desktop */
@@ -337,13 +338,13 @@ button:disabled {
 
   .message__name {
     font-weight: 600;
-    font-size: 40px;
+    font-size: 120px;
     margin-right: 8px;
   }
 
   .message__meta {
     color: #777;
-    font-size: 40px;
+    font-size: 120px;
   }
 
   .message a {
@@ -362,7 +363,7 @@ button:disabled {
   .compose form {
     display: flex;
     flex-grow: 1;
-    margin-right: 16px;
+    margin-right: 48px;
   }
 
   .compose input {
@@ -371,25 +372,25 @@ button:disabled {
     padding: 12px;
     margin: 0 16px 0 0;
     flex-grow: 2;
-    font-size: 30px;
+    font-size: 90px;
   }
 
   .compose button {
-    font-size: 25px;
+    font-size: 75px;
     width: 20%;
   }
   /* Chat Sidebar Styles */
 
   .room-title {
     font-weight: 400;
-    font-size: 50px;
+    font-size: 150px;
     background: #2c2f3a;
     padding: 24px;
   }
 
   .list-title {
     font-weight: 500;
-    font-size: 45px;
+    font-size: 135px;
     margin-bottom: 4px;
     padding: 12px 24px 0 24px;
   }
@@ -399,6 +400,6 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
     color: grey;
-    font-size: 40px;
+    font-size: 120px;
   }
 }
