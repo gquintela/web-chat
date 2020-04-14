@@ -2,7 +2,7 @@ const socket = io();
 
 //elements
 const $messageForm = document.querySelector("#message-form");
-var $messageFormInput = $messageForm.querySelector("input");
+var $messageFormInput = $messageForm.querySelector("textarea");
 const $messageFormButton = $messageForm.querySelector("button");
 const $locationButton = document.querySelector("#sendLocation");
 const $messages = document.querySelector("#messages");

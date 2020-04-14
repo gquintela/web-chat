@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
       return callback(error);
     }
     socket.join(user.room);
-    socket.emit("message", generateMessage("Welcome to the Chat!"));
+    socket.emit("message", generateMessage("Welcome!"));
     socket.broadcast
       .to(user.room)
       .emit("message", generateMessage(`${user.username} jas joined!`));

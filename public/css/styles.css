@@ -140,16 +140,44 @@ button:disabled {
 /* Message Composition Styles */
 
 .compose {
-  display: flex;
-  flex-shrink: 0;
   margin-top: 16px;
   padding: 24px;
 }
 
 .compose form {
   display: flex;
-  flex-grow: 1;
   margin-right: 16px;
+}
+
+.compose form textarea {
+  flex: 10;
+  border-radius: 4px;
+  border: solid 1px gray;
+  padding: 5px;
+  margin: 0 5px;
+  resize: none;
+}
+
+.compose form button {
+  margin: 0 5px;
+  flex: 1;
+}
+
+@media(max-width: 480px) {
+  .compose form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .compose form textarea {
+    flex: 1;
+    height: 200px;
+  }
+
+  .compose form button {
+    margin-top: 10px;
+  }
+
 }
 
 .compose input {

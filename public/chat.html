@@ -14,14 +14,13 @@
 
         <div class="compose">
           <form id="message-form" autocomplete="off">
-            <input
+            <textarea
               name="message"
               placeholder="Write your message"
-              type="text"
-            />
+            ></textarea>
             <button>SEND</button>
+            <button id="sendLocation">SEND LOCATION</button>
           </form>
-          <button id="sendLocation">SEND LOCATION</button>
         </div>
       </div>
     </div>
@@ -40,7 +39,7 @@
           <span class="message__name">{{username}} says:</span>
           <span class="message__meta">{{createdAt}}</span>
         </p>
-        <p><a href="{{url}}" target="about:blank">MI LOCATION (click to open in Google Maps)</a></p>
+        <p><a href="{{url}}" target="about:blank">MY LOCATION (click to open in Google Maps)</a></p>
       </div>
     </script>
 
